@@ -39,6 +39,7 @@ init_phi    = -5*pi/6;
 init_psi    =  2*pi/3;
 
 %-------------
+addpath(genpath('./helpers'))
 
 % ODE options.
 options = odeset('RelTol', 1e-11, 'AbsTol', 1e-11);

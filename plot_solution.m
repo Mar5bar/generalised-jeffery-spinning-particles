@@ -1,3 +1,5 @@
+addpath(genpath('./helpers'))
+
 % We'll plot the asymptotic solution alongside a ribbon plot of the full solution.
 figure("Position",[0,0,1400,370])
 tiledlayout(1,3);
