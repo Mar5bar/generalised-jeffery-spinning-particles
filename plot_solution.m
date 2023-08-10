@@ -1,7 +1,22 @@
 % We'll plot the asymptotic solution alongside a ribbon plot of the full solution.
-figure
+figure("Position",[0,0,1400,370])
+tiledlayout(1,3);
+
+% Components of position.
+nexttile()
+hold on
+plot(ts,x_full,'LineWidth',2)
+plot(ts,y_full,'LineWidth',2)
+plot(ts,z_full,'LineWidth',2)
+plot(ts,x_bar,'LineWidth',2,'LineStyle','--')
+plot(ts,y_bar,'LineWidth',2,'LineStyle','--')
+plot(ts,z_bar,'LineWidth',2,'LineStyle','--')
+legend('$x$','$y$','$z$','$x_0$','$y_0$','$z_0$','Interpreter','latex')
+xlabel('$t$','Interpreter','latex')
+ylabel('$(x,y,z)$, $(x_0,y_0,z_0)$','Interpreter','latex')
 
 % Asymptotic solution.
+nexttile();
 step = 100;
 plot3(x_bar(1:step:end),y_bar(1:step:end),z_bar(1:step:end),'r','LineWidth',2);
 grid on
@@ -30,19 +45,6 @@ c.Label.Interpreter = 'latex';
 c.TickLabelInterpreter = 'latex';
 c.Label.String = '$\psi$ mod $2\pi$';
 
-% Components of position.
-figure
-hold on
-plot(ts,x_full,'LineWidth',2)
-plot(ts,y_full,'LineWidth',2)
-plot(ts,z_full,'LineWidth',2)
-plot(ts,x_bar,'LineWidth',2,'LineStyle','--')
-plot(ts,y_bar,'LineWidth',2,'LineStyle','--')
-plot(ts,z_bar,'LineWidth',2,'LineStyle','--')
-legend('$x$','$y$','$z$','$x_0$','$y_0$','$z_0$','Interpreter','latex')
-xlabel('$t$','Interpreter','latex')
-ylabel('$(x,y,z)$, $(x_0,y_0,z_0)$','Interpreter','latex')
-
 % Plotting angular variables on a sphere.
-figure
+nexttile()
 plot_sphere(theta_full,phi_full,alpha_bar,phi_bar);
