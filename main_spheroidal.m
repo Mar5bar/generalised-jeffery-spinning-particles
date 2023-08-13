@@ -27,6 +27,11 @@ init_theta  =    pi/3;
 init_phi    = -5*pi/6;
 init_psi    =  2*pi/3;
 
+% Time interval.
+t_min = 0;
+t_max = 20;
+ts = linspace(t_min,t_max,1e5);
+
 %-------------
 addpath(genpath('./helpers'))
 
@@ -50,11 +55,6 @@ init_full = [init_theta; init_phi; init_psi; X0];
 
 % The ICs vector for the reduced simulations.
 init_reduced = [init_alpha_bar; init_phi_bar; init_mu_bar; X0];
-
-% Time interval.
-t_min = 0;
-t_max = 20;
-ts = linspace(t_min,t_max,1e5);
 
 params          = struct();
 params.G        = G;
